@@ -132,15 +132,6 @@ sayilar.forEach((sayi) => {
 });
 console.log("Görev 3b", ucetambolunenler);
 
-// function uceBolunenler(sayiDizisi) {
-//   sayiDizisi.forEach((sayi) => {
-//     if (sayi % 3 === 0) {
-//       ucetambolunenler.push(sayi);
-//     }
-//   });
-// }
-// console.log("Görev 3a", uceBolunenler(sayilar));
-
 //3c çözümü:
 
 ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => {
@@ -148,16 +139,6 @@ ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => {
 }, 0);
 
 console.log("Görev 3c", ucebolunenlerintoplami);
-
-// function uceBolunenlerinToplami(sayiDizisi) {
-//   const toplam = sayiDizisi.reduce((toplam, sayi) => {
-//     return toplam + sayi;
-//   }, 0);
-//   return toplam;
-// }
-
-// ucebolunenlerintoplami = uceBolunenlerinToplami(ucetambolunenler);
-// console.log(uceBolunenlerinToplami(ucetambolunenler));
 
 //3d çözümü
 
@@ -184,7 +165,19 @@ console.log("Görev 3e", siralisayilar);
 // 			💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 // 	*/
 
-tekraredensayilar = [];
+const secilenler = [];
+
+for (let i = 0; i < sayilar.length; i++) {
+  const filtrelenen = sayilar.filter((number) => number === sayilar[i]);
+  if (filtrelenen.length > 1) {
+    secilenler.push({ number: sayilar[i], tekrar: filtrelenen.length });
+  }
+}
+
+tekraredensayilar = secilenler.map(
+  (obje) => `${obje.number} sayısı ${obje.tekrar} kere tekrar edilmiştir`
+);
+console.log("Görev 3f", tekraredensayilar);
 
 /* kodlar buraya */
 
